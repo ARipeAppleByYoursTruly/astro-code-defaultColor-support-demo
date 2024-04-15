@@ -1,0 +1,77 @@
+---
+import {Code} from "astro:components"
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Astro</title>
+
+  <style>
+    body {
+      background-color: gray;
+
+      .astro-code,
+      .astro-code span {
+        background-color: var(--shiki-dark-bg);
+        color: var(--shiki-dark);
+      }
+    }
+
+    body.light-theme {
+      .astro-code,
+      .astro-code span {
+        background-color: var(--shiki-light-bg);
+        color: var(--shiki-light);
+      }
+    }
+
+
+    a {
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <Code
+  lang="tsx"
+  themes={{
+    light: "light-plus",
+    dark: "dark-plus"
+  }}
+  defaultColor={false}
+  code={
+`// Example.astro
+---
+import {Code} from "astro:components"
+---
+
+<Code
+  lang="tsx"
+  themes={{
+    light: "light-plus",
+    dark: "dark-plus"
+  }}
+  defaultColor={false}
+  code="// ..."
+/>`
+  }
+  />
+
+  <button class="themeButton">Change theme</button>
+
+  <br/><br/>
+
+  <a href="multipleThemes">Multiple themes (No light/dark, all abitrary theme keys) (Can't run
+    alongside `&lt;Code/&gt;` on this page)</a>
+
+  <script>
+    document.querySelector(".themeButton")!.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme")
+    })
+  </script>
+</body>
+</html>

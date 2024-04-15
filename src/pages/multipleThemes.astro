@@ -1,0 +1,117 @@
+---
+// import {Code} from "astro:components"
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Multiple themes</title>
+
+  <style>
+    body {
+      background-color: gray;
+    }
+
+    a {
+      background: white;
+    }
+
+    p {
+      background: white;
+    }
+
+    /* .astro-code.theme-1 {
+      background-color: var(--shiki-1-bg);
+
+      span {
+        color: var(--shiki-1);
+      }
+    }
+
+    .astro-code.theme-2 {
+      background-color: var(--shiki-2-bg);
+
+      span {
+        color: var(--shiki-2);
+      }
+    }
+
+    .astro-code.theme-3 {
+      background-color: var(--shiki-3-bg);
+
+      span {
+        color: var(--shiki-3);
+      }
+    } */
+  </style>
+</head>
+<body>
+  <!-- <Code
+    lang="tsx"
+    themes={{
+      1: "dracula",
+      2: "github-dark-default",
+      3: "one-dark-pro"
+    }}
+    defaultColor={false}
+    class="numberedThemesCodeBlock"
+    code={
+`// Example.astro
+---
+import {Code} from "astro:components"
+---
+
+<Code
+  lang="tsx"
+  themes={{
+    1: "dracula",
+    2: "github-dark-default",
+    3: "one-dark-pro"
+  }}
+  defaultColor={false}
+  code="// ..."
+/>`
+  }
+  />
+
+  <button class="numberedThemesButton">Cycle themes</button>
+
+  <br/><br/>
+
+  <a href="/">Dual theme (light/dark)</a>
+
+  <script>
+    const numberedThemesCodeBlock = document.querySelector(".numberedThemesCodeBlock")!
+
+    document.querySelector(".numberedThemesButton")!.addEventListener("click", () => {
+      const codeBlock_classList = numberedThemesCodeBlock.classList
+
+      if (codeBlock_classList.contains("theme-1")) {
+        codeBlock_classList.remove("theme-1")
+        codeBlock_classList.add("theme-2")
+      }
+      else if (codeBlock_classList.contains("theme-2")) {
+        codeBlock_classList.remove("theme-2")
+        codeBlock_classList.add("theme-3")
+      }
+      else if (codeBlock_classList.contains("theme-3")) {
+        codeBlock_classList.remove("theme-3")
+      }
+      else {
+        codeBlock_classList.add("theme-1")
+      }
+    })
+  </script> -->
+  <p>It looks like you can't use `&lt;Code/&gt;` components with different themes, ie
+    `&lt;Code/&gt;` A uses "light-plus" and "dark-plus" themes, while `&lt;Code/&gt;` B uses
+    "dracula", "github-dark-default" and "one-dark-pro" themes</p>
+  <p>Makes sense in practice, but the `themes` prop implies that each `&lt;Code/&gt;` can have its
+    own set of themes. That's where caused the confusion</p>
+  <p>Also, changing `themes` prop requires full dev server restart to take effect</p>
+
+  <a href="/">Dual theme (light/dark)</a>
+</body>
+</html>

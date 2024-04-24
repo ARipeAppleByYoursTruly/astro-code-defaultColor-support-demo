@@ -1,6 +1,6 @@
 # Astro's `<Code/>` component `defaultColor` option support demo
 
-Astro version: `4.6.3`
+Astro version: `4.6.4`
 
 Currently requires changes to files in `node_modules` to make the demo work. I copied the modified files to `node_modules - modified files`, use them to overwrite the files after `npm install`.
 
